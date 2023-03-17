@@ -14,41 +14,55 @@ const AuthContext = createContext();
 export const AuthProvider =({
     children
 }) => {
-    const [user, setUser] = useState()
+    const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const emailRef = useRef()
     const passwordRef = useRef() 
     const firstName = useState()
     const lastName = useState()
 
-
     // useEffect(() => {
-    //     // Check active sessions and sets the user
-    //     const session = supabase.auth.session()
-
-    //     setUser(session?.user ?? null)
-    //     setLoading(false)
-
-    //     // Listen for changes on auth state (logged in, signed out, etc.)
-    //     const {
-    //         data: listener
-    //     } = supabase.auth.onAuthStateChange(async (event, session) => {
-    //         setUser(session?.user ?? null)
-    //         setLoading(false)
-    //     })
-
+    //     const session = supabase.auth.session();
+    
+    //     setUser(session?.user ?? null);
+    //     setLoading(false);
+    
+    //     const { data: authListener } = supabase.auth.onAuthStateChange(
+    //       async (event, session) => {
+    //         setUser(session?.user ?? null);
+    //         setLoading(false);
+    //       }
+    //     );
+    
     //     return () => {
-    //         listener?.unsubscribe()
-    //     }
-    // }, [])
+    //       authListener.unsubscribe();
+    //     };
+    //   }, []);
+    
+
+    
 
     
     const value = {
-        // signUp: (data) => supabase.auth.signUp(data),
-        // signIn: (data) => supabase.auth.signIn(data),
-        // signOut: () => supabase.auth.signOut(),
-        user,emailRef,passwordRef,firstName,lastName
-    }
+    // signUp: data => supabase.auth.signUp(data),
+    // signIn: (provider) => {
+    //     supabase.auth.signIn({ provider });
+    //   },
+    
+    // signOut: async () => {
+    //     await supabase.auth.signOut();
+    //     setUser(null);
+    //   },
+    //     user,emailRef,passwordRef,firstName,lastName
+    user, 
+    setUser,
+    loading,
+    setLoading,
+    emailRef,
+    passwordRef,
+    firstName,
+    lastName
+     }
 
     return <AuthContext.Provider value = {
         value
