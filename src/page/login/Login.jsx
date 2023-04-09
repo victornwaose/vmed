@@ -1,6 +1,14 @@
-import React from "react";
+import React,{useRef} from "react";
+
 
 const Login = () => {
+
+   
+
+    
+
+
+
     return (
         <div>
             <section className="h-screen">
@@ -14,7 +22,7 @@ const Login = () => {
                             />
                         </div>
                         <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                            <form>
+                            <form >
                                 <div className="flex flex-row items-center justify-center lg:justify-start">
                                     <p className="flex justify-center text-3xl font-bold items-center mr-4  mb-6 text-blue-600">
                                         Vmed
@@ -62,7 +70,7 @@ const Login = () => {
 
                                 <div className="text-left">
                                     <button
-                                        type="button"
+                                        type="submit"
                                         className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                                     >
                                         Login

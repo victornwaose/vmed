@@ -27,7 +27,7 @@ const MeetDoctor = () => {
                         <FaStarHalfAlt className="mr-5" />
                         <p className="text-sm">(120)</p>
                     </div>
-                    <button className=" text-base mt-2 mb-6 flex px-4 py-2 text-white rounded-md bg-blue-500 text-lg text-center w-[75%] ml-auto mr-auto  ">Book an appointment </button>
+                    <button className=" text-base mt-2 mb-6 flex px-4 py-2 text-white rounded-md bg-blue-500 md:text-lg text-center w-[75%] ml-auto mr-auto  ">Book an appointment </button>
                 </div>
                 <div className=" w-[90%] shadow-lg z-10 h-auto rounded-md py-4 px-3">
                     <img src={Doctor2} alt="doctor-img" className="w-[80%] h-48 ml-auto mr-auto object-fit" />
@@ -42,7 +42,7 @@ const MeetDoctor = () => {
                         <FaStarHalfAlt className="mr-5" />
                         <p className="text-sm">(97)</p>
                     </div>
-                    <button className=" text-base mt-2 mb-6 flex px-4 py-2 text-white rounded-md bg-blue-500 text-lg text-center w-[75%] ml-auto mr-auto ">Book an appointment </button>
+                    <button className=" text-base mt-2 mb-6 flex px-4 py-2 text-white rounded-md bg-blue-500 md:text-lg text-center w-[75%] ml-auto mr-auto ">Book an appointment </button>
                 </div>
                 <div className="w-[90%] shadow-lg h-auto rounded-md py-4 px-3">
                     <img src={Doctor3} alt="doctor-img" className="w-[80%] h-48 mr-auto ml-auto object-fit" />

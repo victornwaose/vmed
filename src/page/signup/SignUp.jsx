@@ -1,8 +1,6 @@
 import React from 'react';
-import { useAuth } from '../../context/AuthContext';
 
 const SignUp = () => {
-const {emailRef,passwordRef,firstName,lastName}=useAuth();
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -27,7 +25,6 @@ const {emailRef,passwordRef,firstName,lastName}=useAuth();
                             className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white  lg:w-full md:w-full focus:border-blue-600 focus:outline-none"
                             id="exampleFormControlInput2"
                             placeholder="Enter your first name"
-                            ref={firstName}
 
                         />
                     </div>
@@ -49,7 +46,6 @@ const {emailRef,passwordRef,firstName,lastName}=useAuth();
                             className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             id="exampleFormControlInput2"
                             placeholder="Enter your Last Name"
-                            ref={lastName}
                         />
                     </div>
                     {/* <!-- Email input --> */}
@@ -70,7 +66,6 @@ const {emailRef,passwordRef,firstName,lastName}=useAuth();
                             className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             id="exampleFormControlInput2"
                             placeholder="Email/Username"
-                            ref={emailRef}
                         />
                     </div>
                     {/* <!-- Email input --> */}
@@ -81,7 +76,6 @@ const {emailRef,passwordRef,firstName,lastName}=useAuth();
                             className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             id="exampleFormControlInput2"
                             placeholder="Enter a new password"
-                            ref={passwordRef}
 
                         />
                     </div>
