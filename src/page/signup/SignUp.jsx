@@ -1,16 +1,55 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {  useNavigate } from 'react-router-dom';
+
+import { AuthState,  } from '../../context/AuthContext';
+
+
 
 const SignUp = () => {
 
-    async function handleSubmit(e) {
-        e.preventDefault()
+    
+    const [email, setEmail] = useState("");
+    const[password, setPassword]= useState("");
+    const [confirmPassword, setConfrimPassword]= useState("");
+    const [error, setError]= useState();
+
+    const navigate = useNavigate();
+
+
+    const{setAlert,createUser}=   AuthState();
+
+   const handleSubmit= async(e) => {
+        e.preventDefault();
+        if (password !== confirmPassword){
+            setAlert({
+                open:  true,
+                message: "password don't match",
+                type: "error"
+            });
+            return;
+        };
+
+        setError("");
+        try{
+            await createUser(email,password);
+            navigate("/");
+        setAlert({
+            open:  true,
+            message: "SIGN UP SUCCESS",
+            type: "success"
+        });
+        }catch(e){
+            setError(e.message);
+            console.log(e.message);
+        }
+        
     }
     
 
     return (
         <div className="w-[90%] md:w-[50%] ml-auto mr-auto">
             <div className="md:w-[50] mb-12 md:mb-0 ml-auto mr-auto">
-                <form className="" onSubmit={handleSubmit}>
+                <form   onSubmit={handleSubmit}>
                     <div className="flex flex-row items-center justify-center lg:justify-start">
                         <p className="flex justify-center text-3xl font-bold items-center mr-4 mt-5 mb-6 text-blue-600">
                             Vmed
@@ -22,9 +61,9 @@ const SignUp = () => {
                         <label>First Name</label>
                         <input
                             type="text"
-                            className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white  lg:w-full md:w-full focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput2"
+                            className=" block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white  lg:w-full md:w-full focus:border-blue-600 focus:outline-none"
                             placeholder="Enter your first name"
+                            
 
                         />
                     </div>
@@ -34,7 +73,6 @@ const SignUp = () => {
                         <input
                             type="text"
                             className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput2"
                             placeholder="Enter a Middle Name"
                         />
                     </div>
@@ -44,7 +82,6 @@ const SignUp = () => {
                         <input
                             type="text"
                             className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput2"
                             placeholder="Enter your Last Name"
                         />
                     </div>
@@ -54,7 +91,6 @@ const SignUp = () => {
                         <input
                             type="date"
                             className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput2"
                             placeholder="Chose your date of birth"
                         />
                     </div>
@@ -64,18 +100,18 @@ const SignUp = () => {
                         <input
                             type="text"
                             className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput2"
                             placeholder="Email/Username"
+                            onChange={(e)=>setEmail(e.target.value)}
                         />
                     </div>
                     {/* <!-- Email input --> */}
                     <div className="mb-6">
                         <label>Password</label>
                         <input
-                            type="text"
+                            type="password"
                             className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput2"
                             placeholder="Enter a new password"
+                            onChange={(e)=> setPassword(e.target.value)}
 
                         />
                     </div>
@@ -83,14 +119,19 @@ const SignUp = () => {
                     <div className="mb-6">
                         <label>Confirm Password</label>
                         <input
-                            type="text"
+                            type="password"
                             className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="exampleFormControlInput2"
                             placeholder="confirm your password"
+                            onChange={(e)=>setConfrimPassword(e.target.value)}
                         />
                     </div>
-                    <div className="w-[60%] ml-auto mr-auto"><button className="px-8 py-2 text-white rounded-md bg-blue-700">Sign Up</button></div>
-
+                    <div className="w-[90%] ml-auto mr-auto">
+                        <button className="px-8 py-2 text-white rounded-md bg-blue-700  w-full" 
+                        type='submit'
+                        onClick={handleSubmit}
+                        >Sign Up</button>  
+                    </div>
+                        <h1 className='text-center'>or</h1>
                 </form>
             </div>
         </div>

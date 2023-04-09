@@ -3,11 +3,6 @@ import React,{useRef} from "react";
 
 const Login = () => {
 
-   
-
-    
-
-
 
     return (
         <div>

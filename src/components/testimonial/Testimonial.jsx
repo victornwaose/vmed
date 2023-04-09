@@ -9,7 +9,7 @@ const Testimonial = () => {
 
     const [carousels, setCarousels] = useState(TestData)
 
-    console.log(carousels)
+    
     const handleDragStart = (e) => e.preventDefault();
 
     const items = carousels.map((carousel) => {
