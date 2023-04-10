@@ -9,6 +9,20 @@
     font-family: Inter,Arial, Helvetica, sans-serif;
 }
 
+.animate-bounce {
+    animation: bounce 1s ease-in-out infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(-25%);
+    }
+  
+    50% {
+      transform: translateY(0);
+    }
+  }
+
 
 @tailwind base;
 @tailwind components;

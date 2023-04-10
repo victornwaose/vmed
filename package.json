@@ -16,6 +16,7 @@
     "react-google-button": "^0.7.2",
     "react-icon": "^1.0.0",
     "react-icons": "^4.7.1",
+    "react-responsive-modal": "^6.4.1",
     "react-router-dom": "^6.6.1"
   },
   "devDependencies": {

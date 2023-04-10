@@ -9,4 +9,5 @@ from "./login/Login";
 export {
     default as SignUp
 }
-from "./signup/SignUp"
+from "./signup/SignUp";
+export {default as Dashbaord} from "./dashboard/Dashbaord"

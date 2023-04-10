@@ -1,6 +1,6 @@
 import './App.css'
 import { Routes, Route } from "react-router-dom";
-import { LandingPage, Login, SignUp } from './page'
+import { Dashbaord, LandingPage, Login, SignUp } from './page'
 
 
 
@@ -10,6 +10,7 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/dashbaord" element={<Dashbaord/>}/>ss
         <Route path="/" element={<LandingPage />} />
       </Routes>
     </div>

@@ -1,4 +1,5 @@
 import React,{useRef} from "react";
+import GoogleButton from "react-google-button";
 
 
 const Login = () => {
@@ -63,13 +64,15 @@ const Login = () => {
                                     </a>
                                 </div>
 
-                                <div className="text-left">
+                                <div className="text-center">
                                     <button
                                         type="submit"
-                                        className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                                        className="inline-block px-7 py-3 w-[70%] ml-auto mr-auto bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                                     >
                                         Login
                                     </button>
+                                    <h1 className="text-xl mt-2"> Or </h1>
+                                    <GoogleButton className="mt-3 !w-[70%] ml-auto mr-auto"/>
                                 </div>
                             </form>
                         </div>

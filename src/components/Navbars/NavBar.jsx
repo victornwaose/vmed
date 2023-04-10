@@ -14,7 +14,7 @@ const NavBar = () => {
     return (
         <div className="w-[90%] ml-auto mr-auto py-2">
             <div className="flex justify-between">
-                <h1 className="text-3xl font-bold text-gray-700 mt-1">Vmed</h1>
+                <h1 className="text-3xl font-bold text-blue-700 mt-1">Vmed</h1>
                 {/* mobile controlleer */}
                 <div className="h-4 w-4 md:hidden lg:hidden"
                     onClick={() => MobileVeiw()}>

@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {  useNavigate } from 'react-router-dom';
+import GoogleButton from 'react-google-button'
+
 
 import { AuthState,  } from '../../context/AuthContext';
 
@@ -32,7 +34,7 @@ const SignUp = () => {
         setError("");
         try{
             await createUser(email,password);
-            navigate("/");
+            navigate("/dashbaord");
         setAlert({
             open:  true,
             message: "SIGN UP SUCCESS",
@@ -49,7 +51,7 @@ const SignUp = () => {
     return (
         <div className="w-[90%] md:w-[50%] ml-auto mr-auto">
             <div className="md:w-[50] mb-12 md:mb-0 ml-auto mr-auto">
-                <form   onSubmit={handleSubmit}>
+                <form  className="mb-5"  onSubmit={handleSubmit}>
                     <div className="flex flex-row items-center justify-center lg:justify-start">
                         <p className="flex justify-center text-3xl font-bold items-center mr-4 mt-5 mb-6 text-blue-600">
                             Vmed
@@ -126,12 +128,16 @@ const SignUp = () => {
                         />
                     </div>
                     <div className="w-[90%] ml-auto mr-auto">
-                        <button className="px-8 py-2 text-white rounded-md bg-blue-700  w-full" 
+                        <button className="cursor-pointer px-8 py-2 text-white rounded-md bg-blue-700  w-full  h-12" 
                         type='submit'
                         onClick={handleSubmit}
                         >Sign Up</button>  
+                        <h1 className='text-center text-xl font-normal mt-3'>Or</h1>
+                        <GoogleButton 
+                        label="Sign up with Google"
+                        className="!w-full ml-auto mr-auto mt-3 mb-5 "/>
                     </div>
-                        <h1 className='text-center'>or</h1>
+
                 </form>
             </div>
         </div>
