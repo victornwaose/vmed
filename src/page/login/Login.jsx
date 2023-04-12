@@ -20,7 +20,8 @@ const Login = () => {
             await signIn(email,password)
             navigate("/dashbaord");  
         }catch(e){
-            console.log(e.message)
+            setError(e.message);
+            console.log(e.message);
         }
     }
 
