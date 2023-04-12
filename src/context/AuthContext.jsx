@@ -28,8 +28,14 @@ const AuthContext = createContext();
     const createUser =(email,password)=> {
         return createUserWithEmailAndPassword(auth, email,password)
 
-    }
+    };
+const signIn=(email,password)=> {
+    return signInWithEmailAndPassword(auth, email, password)
+};
 
+    const logOut= () => {
+            return signOut(auth)
+    };
 
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (currentUser) =>{
@@ -47,7 +53,10 @@ const AuthContext = createContext();
     return <AuthContext.Provider value = {{
         alert,
         setAlert, 
-        createUser
+        createUser,
+        user,
+        logOut,
+        signIn
     }} > 
        {children} 
      
