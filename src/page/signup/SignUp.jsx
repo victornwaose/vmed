@@ -18,7 +18,7 @@ const SignUp = () => {
     const navigate = useNavigate();
 
 
-    const{setAlert,createUser}=   AuthState();
+    const{setAlert,createUser,googleSignIn}=   AuthState();
 
    const handleSubmit= async(e) => {
         e.preventDefault();
@@ -46,12 +46,20 @@ const SignUp = () => {
         }
         
     }
-    
+      const handleGoogleSignIn =async (e)=>{
+            try{
+                await googleSignIn()
+                navigate("/dashbaord")
+            }catch(e){
+                setError(e.message)
+                console.log(e.message)
+            }
+      }
 
     return (
         <div className="w-[90%] md:w-[50%] ml-auto mr-auto">
             <div className="md:w-[50] mb-12 md:mb-0 ml-auto mr-auto">
-                <form  className="mb-5"  onSubmit={handleSubmit}>
+                <form  className="mb-5"  onSubmit={handleSubmit} >
                     <div className="flex flex-row items-center justify-center lg:justify-start">
                         <p className="flex justify-center text-3xl font-bold items-center mr-4 mt-5 mb-6 text-blue-600">
                             Vmed
@@ -135,9 +143,9 @@ const SignUp = () => {
                         <h1 className='text-center text-xl font-normal mt-3'>Or</h1>
                         <GoogleButton 
                         label="Sign up with Google"
-                        className="!w-full ml-auto mr-auto mt-3 mb-5 "/>
+                        className="!w-full ml-auto mr-auto mt-3 mb-5 "
+                        onClick={handleGoogleSignIn}/>
                     </div>
-
                 </form>
             </div>
         </div>

@@ -10,8 +10,10 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const[password, setPassword]= useState("");
     const [error, setError]= useState("");
+
     const navigate = useNavigate();
-    const{signIn}= AuthState();
+
+    const{signIn, googleSignIn}= AuthState();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,6 +26,16 @@ const Login = () => {
             console.log(e.message);
         }
     }
+
+    const handleGoogleSignIn =async (e)=>{
+        try{
+            await googleSignIn()
+            navigate("/dashbaord")
+        }catch(e){
+            setError(e.message)
+            console.log(e.message)
+        }
+  }
 
     return (
         <div>
@@ -91,7 +103,7 @@ const Login = () => {
                                         Login
                                     </button>
                                     <h1 className="text-xl mt-2"> Or </h1>
-                                    <GoogleButton className="mt-3 !w-[70%] ml-auto mr-auto"/>
+                                    <GoogleButton onClick={handleGoogleSignIn} className="mt-3 !w-[70%] ml-auto mr-auto"/>
                                 </div>
                             </form>
                         </div>
